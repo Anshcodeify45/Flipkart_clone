@@ -3,7 +3,7 @@ import React from 'react'
 import {AppBar , Toolbar ,styled , Box , Typography} from '@mui/material'
 
 import Search from './Search'
-import CustomBtn from '../CustomBtn'
+import CustomBtn from './CustomBtn'
 
 const StyleHead = styled(AppBar)`
 background : #2874f0
