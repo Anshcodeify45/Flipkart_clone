@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box ,styled ,Typography , Button } from '@mui/material'
 import { ShoppingCart } from '@mui/icons-material';
-
-
+import Login from '../login/Login';
+import { useState } from 'react';
 
 const Wrapper = styled(Box)`
 display : flex;
@@ -30,9 +30,16 @@ const LoginBTn = styled(Button)`
 
 `
 function CustomBtn() {
+
+
+  const [open , setOpen] = useState(false);
+
+  const openLogin = () => {
+    setOpen(true);
+  }
   return (
     <Wrapper>
-        <LoginBTn variant="contained">Login</LoginBTn>
+        <LoginBTn variant="contained"  onClick={()=> openLogin()}>Login</LoginBTn>
         <Typography style={{ marginTop: 3, width: 135 }}>Become a seller</Typography>
         <Typography style={{ marginTop: 3 }}>More</Typography>
 
@@ -40,6 +47,7 @@ function CustomBtn() {
             <ShoppingCart/>
             <Typography>Cart</Typography>
         </Container>
+        <Login open={open} setOpen={setOpen}/>
     </Wrapper>
   )
 }
