@@ -4,6 +4,7 @@ import { ShoppingCart } from '@mui/icons-material';
 import Login from '../login/Login';
 import { useState ,useContext} from 'react';
 import { DataContext } from '../../context/Datasupply';
+import Profile from './Profile';
 
 const Wrapper = styled(Box)`
 display : flex;
@@ -35,7 +36,7 @@ function CustomBtn() {
 
   const [open , setOpen] = useState(false);
 
-  const { account } = useContext(DataContext);
+  const { account  ,setAccount} = useContext(DataContext);
 
   const openLogin = () => {
     setOpen(true);
@@ -44,7 +45,7 @@ function CustomBtn() {
   return (
     <Wrapper>
       {
-        account ? <Typography> {account}</Typography> :
+        account ? < Profile account={account} setAccount={setAccount}/> :
         
         <LoginBTn variant="contained"  onClick={()=> openLogin()}>Login</LoginBTn>
       }
