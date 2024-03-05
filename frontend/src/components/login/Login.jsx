@@ -1,7 +1,11 @@
 import React from 'react'
 import {Box , TextField ,Typography , Button , Dialog , styled} from '@mui/material';
-import { useState } from 'react';
+import { useState , useContext} from 'react';
 import { authenticateSignup } from '../../service/api';
+import { DataContext } from '../../context/Datasupply';
+
+
+
 
 const Component = styled(Box)`
 height: 70vh;
@@ -87,6 +91,7 @@ function Login({open ,setOpen}) {
 
     const [signup, setSignup] = useState(signupData);
 
+    const {setAccount} = useContext(DataContext);
     const togglesignup = () => {
         Signupacnt(accountInitial.signup)
     } 
@@ -101,8 +106,11 @@ function Login({open ,setOpen}) {
         setSignup({...signup , [e.target.name] : e.target.value });
     }
 
-    const signupData = async() => {
-          await  authenticateSignup(signup);
+    const loginuser = async() => {
+        let response = await  authenticateSignup(signup);
+        if(!response) return;
+        offLogin();
+        setAccount(signup.username);
     }
   return (
     <Dialog open={open} onClose={offLogin} PaperProps={{sx : {maxWidth: 'unset'}}} >
@@ -130,7 +138,7 @@ function Login({open ,setOpen}) {
                 <TextField variant='standard' onChange={(e) => onInputChange(e)} name='email' label = 'Enter Email' />
                 <TextField variant='standard' onChange={(e) => onInputChange(e)} name='password' label = 'Enter Password' />
                 <TextField variant='standard' onChange={(e) => onInputChange(e)} name='phone' label = 'Enter Phone' />
-                <LoginBtn onClick={()=> signupData()}> Continue</LoginBtn>
+                <LoginBtn onClick={()=> loginuser()}> Continue</LoginBtn>
                 
                 </Wrapper>
            } 
