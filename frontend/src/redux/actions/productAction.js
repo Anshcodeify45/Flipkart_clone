@@ -14,3 +14,11 @@ export const getProducts = ()   =>  async (dispatch) => {
         console.log({type:actionTypes.GET_PRODUCTS_FAIL,payload: error.message});
     }
 }
+
+export const getProductData  = () => async (dispatch) => {
+    try{
+        
+    }catch(error){
+
+    }
+}

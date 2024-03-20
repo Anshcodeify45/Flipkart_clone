@@ -4,12 +4,13 @@ import {AppBar , Toolbar ,styled , Box , Typography} from '@mui/material'
 
 import Search from './Search'
 import CustomBtn from './CustomBtn'
+import { Link } from 'react-router-dom'
 
 const StyleHead = styled(AppBar)`
 background : #2874f0
 height : 55px;
 `
-const Component = styled (Box)`
+const Component = styled (Link)`
  margin-left : 12%;
  line-height : 0;
  color: #FFFFFF;
@@ -37,7 +38,8 @@ function Header() {
   return (
     <StyleHead>
         <Toolbar style={{minHeight : 55}}>
-            <Component>
+          
+            <Component to='/'>
                 <img src={logoURL} alt="Flipkart_logo" style={{width: 75}} />
                 <Box component="span" style={{ display: 'flex' }}>
                     <Subheading> Explore &nbsp;
@@ -46,6 +48,7 @@ function Header() {
                     <Plusimg src={subURL} alt="plus" />
                 </Box>
             </Component>
+          
             <Search/>
             <Btnbox>
                <CustomBtn/>
