@@ -2,9 +2,9 @@
 
 
 
-export const Get_products_success = 'getproductSuccess';
+export const GET_PRODUCTS_SUCCESS = 'getproductSuccess';
 
 
 
 
-export const Get_products_fail = 'getproductFail';
+export const GET_PRODUCTS_FAIL = 'getproductFail';

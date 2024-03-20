@@ -19,7 +19,7 @@ function Home() {
 
   const { products } = useSelector(state => state.getProducts)
 
-  console.log(products)  ;
+  console.log(products+'data')  ;
 
   const dispatch = useDispatch();
 

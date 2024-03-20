@@ -74,7 +74,7 @@ function Slide({products , title ,timer}) {
     return <Box variant="span">{hours}:{minutes}:{seconds} Left</Box>;
    }
    
-   
+   console.log(products.data)
     const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
   return (
     <Component>
